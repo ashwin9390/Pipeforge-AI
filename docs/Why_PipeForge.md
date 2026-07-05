@@ -1,9 +1,9 @@
 # Why PipeForge-AI Exist?
 
-###THE THREE REAL PROBLEMS THIS SOLVES
+###**THE THREE REAL PROBLEMS THIS SOLVES**
 
 
-###PROBLEM 1: "Denial of Wallet" Attacks
+###**PROBLEM 1: "Denial of Wallet" Attacks**
 
 
 WHAT HAPPENS:
@@ -41,7 +41,7 @@ REAL EXAMPLE:
   No overshoot. No bill shock.
 
 
-###PROBLEM 2: Silent Agent Death
+###**PROBLEM 2: Silent Agent Death**
 
 
 WHAT HAPPENS:
@@ -78,7 +78,7 @@ REAL EXAMPLE:
 
 
 
-###PROBLEM 3: Black Box -- No Observability
+###**PROBLEM 3: Black Box -- No Observability**
 
 
 WHAT HAPPENS:
@@ -117,7 +117,7 @@ REAL EXAMPLE:
 
 
 
-WHO SHOULD USE PIPEFORGE
+**WHO SHOULD USE PIPEFORGE**
 
 
 USE PIPEFORGE IF YOU ARE:
@@ -135,7 +135,7 @@ DO NOT USE PIPEFORGE IF YOU:
 
 
 
-###HOW IT COMPARES TO WHAT YOU MAY ALREADY KNOW
+###**HOW IT COMPARES TO WHAT YOU MAY ALREADY KNOW**
 
 
 VS LangChain / LangGraph:
@@ -169,7 +169,7 @@ VS Building From Scratch:
   Saves approximately 3-4 weeks of boilerplate engineering.
 
 
-###REAL WORLD USE CASES
+###**REAL WORLD USE CASES**
 
 
 1. CONTENT FACTORY
