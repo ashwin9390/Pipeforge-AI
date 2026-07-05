@@ -231,7 +231,7 @@ pytest tests/ -v
 ## Project Structure
 
 ```
-pipeforge/
+pipeforge-AI/
 +-- shared/
 |   +-- token_utils.py      # tiktoken accurate cost (not char/4 heuristic)
 |   +-- redis_utils.py      # BlackboardClient -- Lua atomics, 24h TTL
