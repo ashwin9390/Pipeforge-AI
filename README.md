@@ -1,10 +1,10 @@
-# PipeForge
+# PipeForge-AI
 
 **Self-hostable autonomous agent infrastructure. No framework lock-in.**
 
 ---
 
-## What Is PipeForge?
+## What Is PipeForge-AI?
 
 A **lightweight, pro-code agent runtime** built from first principles -- no LangChain, no CrewAI, no framework tax.
 
@@ -17,7 +17,7 @@ Agents run as ephemeral processes. State lives in a Redis Blackboard. Every sess
 > Most teams wake up to $400 OpenAI bills from infinite loops.
 > PipeForge kills runaway sessions before they drain your wallet.
 
-*Read the full deep-dive in our documentation: [Why PipeForge Exists](docs/WHY_PIPEFORGE.md).*
+*Read the full deep-dive in our documentation: [Why PipeForge-AI Exists](docs/WHY_PIPEFORGE-AI.md).*
 ---
 ## Testing & Verification
 
@@ -31,7 +31,7 @@ The PipeForge test suite is verified with **12/12 tests passing**.
 **Requires:** Docker Desktop + OpenAI API key.
 
 ```bash
-git clone [https://github.com/ashwin9390/pipeforge.git](https://github.com/ashwin9390/pipeforge.git)
+git clone [https://github.com/ashwin9390/pipeforge-AI.git](https://github.com/ashwin9390/pipeforge.git)
 cd pipeforge
 cp .env.example .env        # Add OPENAI_API_KEY and UI_API_KEY
 chmod +x launch.sh
