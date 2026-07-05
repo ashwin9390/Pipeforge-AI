@@ -1,4 +1,4 @@
-# Why PipeForge Exist?
+# Why PipeForge-AI Exist?
 
 =======================================================
 THE THREE REAL PROBLEMS THIS SOLVES
