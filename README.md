@@ -17,7 +17,7 @@ Agents run as ephemeral processes. State lives in a Redis Blackboard. Every sess
 > Most teams wake up to $400 OpenAI bills from infinite loops.
 > PipeForge kills runaway sessions before they drain your wallet.
 
-*Read the full deep-dive in our documentation: [Why PipeForge-AI Exists](docs/WHY_PIPEFORGE-AI.md).*
+*Read the full deep-dive in our documentation: [[Why PipeForge-AI Exists](docs/WHY_PIPEFORGE-AI.md](https://github.com/ashwin9390/Pipeforge-AI/blob/main/docs/Why_PipeForge.md)).*
 ---
 ## Testing & Verification
 
