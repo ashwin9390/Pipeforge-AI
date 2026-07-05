@@ -1,8 +1,6 @@
 # Why PipeForge-AI Exist?
 
-=======================================================
 THE THREE REAL PROBLEMS THIS SOLVES
-=======================================================
 
 --------------------------------------
 PROBLEM 1: "Denial of Wallet" Attacks
