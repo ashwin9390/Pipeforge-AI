@@ -222,7 +222,7 @@ docker compose up -d --scale processor-agent=10
 ## Testing
 
 ```bash
-python tests/test_pipeforge.py    # 8 unit tests, no factory needed
+python tests/test_pipeforge.py    # 12 unit tests, no factory needed
 pytest tests/ -v
 ```
 
@@ -251,7 +251,7 @@ pipeforge-AI/
 |
 +-- bench_pipeforge.py      # Real benchmarks (5 modes)
 +-- chaos_monkey.py         # Fault injection
-+-- tests/test_pipeforge.py # 8 unit tests
++-- tests/test_pipeforge.py # 12 unit tests
 +-- docker-compose.yml      # All services + Jaeger
 +-- launch.sh
 +-- docs/                   # Technical documentation & test reports
