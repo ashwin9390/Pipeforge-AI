@@ -32,7 +32,7 @@ if state['status'] == 'BLOCKED_SECURITY' then return 0 end
 if state['status'] == 'COMPLETED' then return 0 end
 state['last_heartbeat'] = tonumber(ARGV[2])
 redis.call('SET', KEYS[1], cjson.encode(state), 'EX', 86400)
-redis.call('LPUSH', KEYS[2], KEYS[1])
+redis.call('LPUSH', KEYS[2], ARGV[3])
 return 1
 """
 
@@ -129,15 +129,20 @@ class BlackboardClient:
         return json.loads(raw) if raw else None
 
     def set_state(self, sid: str, state: dict, ttl_hours: int = 24):
-        """Write with 24h safety TTL."""
-        self.r.set(sid, json.dumps(state), ex=ttl_hours * 3600)
+        """Write with 24h safety TTL. Keyed per tenant so two tenants that happen to
+        share a session id do not clobber each other."""
+        self.r.set(self._key(sid), json.dumps(state), ex=ttl_hours * 3600)
 
     def delete(self, sid: str):
         self.r.delete(sid)
         self.r.delete(self._key(sid))
 
     def all_session_ids(self) -> list[str]:
-        return self.r.keys("pf_*")
+        prefix = self._key("")  # "pf:{tenant}:"
+        sids = []
+        for key in self.r.scan_iter(match=f"{prefix}*", count=200):
+            sids.append(key[len(prefix):])
+        return sids
 
     # -- Queue ops --------------------------------------------------------
 
@@ -187,7 +192,7 @@ class BlackboardClient:
         Returns False if it would exceed budget (abort the call).
         """
         result = self._reserve_budget(
-            keys=[sid],
+            keys=[self._key(sid)],
             args=[str(estimated_cost), str(max_budget)]
         )
         return bool(result)
@@ -206,7 +211,7 @@ class BlackboardClient:
         Call this in the finally block of every LLM invocation.
         """
         result = self._commit_spend(
-            keys=[sid],
+            keys=[self._key(sid)],
             args=[str(actual_cost), str(estimated_cost),
                   str(input_tokens), str(output_tokens),
                   str(time.time())]
@@ -332,7 +337,7 @@ class BlackboardClient:
         No-op if step has already been advanced (idempotent replay safety).
         """
         result = self._advance_step(
-            keys=[sid],
+            keys=[self._key(sid)],
             args=[from_step, to_step, str(time.time())]
         )
         return bool(result)
@@ -342,8 +347,8 @@ class BlackboardClient:
     def safe_requeue(self, sid: str, expected_step: str) -> bool:
         queue_key = f"queue_{expected_step}"
         result = self._safe_requeue(
-            keys=[sid, queue_key],
-            args=[expected_step, str(time.time())]
+            keys=[self._key(sid), queue_key],
+            args=[expected_step, str(time.time()), sid]
         )
         return bool(result)
 

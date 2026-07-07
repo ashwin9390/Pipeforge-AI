@@ -21,3 +21,5 @@ opentelemetry-instrumentation-fastapi
 opentelemetry-instrumentation-redis
 mcp>=1.0.0
 httpx
+# test-only
+fakeredis
